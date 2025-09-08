@@ -76,11 +76,31 @@ const LearnerSubmissions = [
 ];
 
 function getLearnerData(course, ag, submissions) {
+const result = []
+
+for(let i = 0; i < submissions.length; i++ ) {
+  let report = {}
+
+  report.id = submissions[i] ['learner_id']
+  for(j = 0; j <submissions.length; j++) {
+
+    if(submissions.learner_id == 125 && 132) {
+      let avgScore = ''
+      console.log(avgScore);
+    }
+  }
+  report.avg = submissions[i].submission[1];
+  report.assignment_id = submissions[0]['assignment_id']
+  report.assignment_id2 = submissions[1]['assignment_id']
+  result.push(report)
+
+  console.log(report)
+}
+
+console.log(result);
 
 
 
-
-  
   // here, we would process this data to achieve the desired result.
   // const result = [
   //   {
