@@ -77,6 +77,18 @@ const LearnerSubmissions = [
 
 function getLearnerData(course, ag, submissions) {
 const result = []
+let totalAvg132 = student132Avg / totalPoints;
+let totalAvg125 = student125Avg / totalPoints;
+let points_possible1 = '';
+let points_possible2 = '';
+let totalPoints = ag.assignments[0].points_possible + ag.assignments[1].points_possible;
+let student132Avg = submissions[3].submission.score + submissions[4].submission.score;
+let student125Avg = submissions[0].submission.score + submissions[1].submission.score;
+let submissions1Avg1 = submissions[0].submission.score/ag.assignments[0].points_possible;
+let submissions1Avg2 = submissions[1].submission.score/ag.assignments[1].points_possible;
+console.log(totalPoints);
+console.log(totalAvg132);
+
 
 for(let i = 0; i < submissions.length; i++ ) {
   let report = {}
