@@ -80,14 +80,14 @@ const result = []
 let student132Average = submissions[3].submission.score + submissions[4].submission.score;
 let student125Average = submissions[0].submission.score + submissions[1].submission.score;
 let totalPoints = ag.assignments[0].points_possible + ag.assignments[1].points_possible;
-let totalAvg132 = student132Average / totalPoints;
+let totalAverage132 = student132Average / totalPoints;
 let totalAvg125 = student125Average / totalPoints;
 let points_possible1 = '';
 let points_possible2 = '';
 let submissions1Avg1 = submissions[0].submission.score/ag.assignments[0].points_possible;
 let submissions1Avg2 = submissions[1].submission.score/ag.assignments[1].points_possible;
 console.log(totalPoints);
-console.log(totalAvg132);
+console.log();
 
 
 for(let i = 0; i < submissions.length; i++ ) {
