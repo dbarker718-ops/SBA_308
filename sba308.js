@@ -75,8 +75,25 @@ const LearnerSubmissions = [
   },
 ];
 
+function ValidAssignmentGroup(CourseInfo, AssignmentGroup) {
+  return CourseInfo.id == AssignmentGroup.course_id;
+}
+
+function ValidSubmission(LearnerSubmissions, AssignmentGroup, number) {
+    const score = LearnerSubmissions[number].submission.score;
+    const points_possible = AssignmentGroup.assignments[(LearnerSubmissions[number].assignment_id)-1].points_possible;
+
+    if (points_possible == 0 || typeof score == "number" || isNaN(score)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 function getLearnerData(course, ag, submissions) {
-  const result = {};
+  //ValidSubmission(submission, assignment)
+  ValidAssignmentGroup(course,ag)
+  ///const result = {test:5};
   let student132Average =
     submissions[3].submission.score + submissions[4].submission.score;
   let student125Average =
@@ -85,8 +102,8 @@ function getLearnerData(course, ag, submissions) {
     ag.assignments[0].points_possible + ag.assignments[1].points_possible;
   let totalAverage132 = student132Average / pointsTotal;
   let totalAverage125 = student125Average / pointsTotal;
-  let possiblePoints1 = "";
-  let possiblePoints2 = "";
+  let points_possible1 = "";
+  let points_possible2 = "";
   let submissions1Average1 =
     submissions[0].submission.score / ag.assignments[0].points_possible;
   let submissions1Average2 =
@@ -96,9 +113,38 @@ function getLearnerData(course, ag, submissions) {
   console.log(totalAverage125);
   console.log(submissions1Average1);
   console.log(submissions1Average2);
-  console.log(possiblePoints1);
-  console.log(possiblePoints2);
-  console.log(result);
+  console.log(points_possible1);
+  console.log(points_possible2);
+  //console.log(result);
+  console.log(ValidAssignmentGroup(course,ag));
+  console.log(ValidSubmission(submissions, ag, 0));
+  
+  let idArray = []
+  let AverageArray = []
+  let AssignmentArray125 = []
+  let AssignmentArray132 = []
+  idArray.push(submissions[0].learner_id)
+  idArray.push(submissions[3].learner_id)
+  AverageArray.push(totalAverage125)
+  AverageArray.push(totalAverage132)
+  AssignmentArray125.push(submissions1Average1)
+  AssignmentArray132.push(submissions1Average2)
+  console.log(idArray)
+  console.log(AverageArray)
+  console.log(AssignmentArray125)
+  console.log(AssignmentArray132)
+  const finaloutput = [
+    {
+      id: idArray[0],
+      Average: AverageArray[0],
+      assignment_id: AssignmentArray125[0]
+    },
+    {
+      id: idArray[1],
+      Average: AverageArray[1],
+      assignment_id: AssignmentArray132[0]
+    }
+  ]
 
   for (let i = 0; i < submissions.length; i++) {
     let report = {};
@@ -118,7 +164,7 @@ function getLearnerData(course, ag, submissions) {
     console.log(report);
   }
 
-  console.log(result);
+  //console.log(result);
 
   // here, we would process this data to achieve the desired result.
   // const result = [
@@ -136,9 +182,9 @@ function getLearnerData(course, ag, submissions) {
   //   }
   // ];
 
-  // return result;
+   return finaloutput;
 }
 
 const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
 
-//console.log(result);
+console.log(result);
