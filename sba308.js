@@ -87,7 +87,7 @@ let points_possible2 = '';
 let submissions1Avg1 = submissions[0].submission.score/ag.assignments[0].points_possible;
 let submissions1Avg2 = submissions[1].submission.score/ag.assignments[1].points_possible;
 console.log(totalPoints);
-console.log();
+console.log(totalAverage132);
 
 
 for(let i = 0; i < submissions.length; i++ ) {
