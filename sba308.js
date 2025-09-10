@@ -88,7 +88,7 @@ let submissions1Avg1 = submissions[0].submission.score/ag.assignments[0].points_
 let submissions1Avg2 = submissions[1].submission.score/ag.assignments[1].points_possible;
 console.log(totalPoints);
 console.log(totalAverage132);
-
+console.log(totalAverage125)
 
 for(let i = 0; i < submissions.length; i++ ) {
   let report = {}
