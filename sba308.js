@@ -102,8 +102,8 @@ function getLearnerData(course, ag, submissions) {
     ag.assignments[0].points_possible + ag.assignments[1].points_possible;
   let totalAverage132 = student132Average / pointsTotal;
   let totalAverage125 = student125Average / pointsTotal;
-  let points_possible1 = "";
-  let points_possible2 = "";
+  //let points_possible1 = "";
+  //let points_possible2 = "";
   let submissions1Average1 =
     submissions[0].submission.score / ag.assignments[0].points_possible;
   let submissions1Average2 =
@@ -113,8 +113,8 @@ function getLearnerData(course, ag, submissions) {
   console.log(totalAverage125);
   console.log(submissions1Average1);
   console.log(submissions1Average2);
-  console.log(points_possible1);
-  console.log(points_possible2);
+  //console.log(points_possible1);
+  //console.log(points_possible2);
   //console.log(result);
   console.log(ValidAssignmentGroup(course,ag));
   console.log(ValidSubmission(submissions, ag, 0));
